@@ -1,0 +1,107 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} 
+
+.heading{
+    margin-top: 10px;
+    text-align: center;
+}
+
+main{
+    margin: 10px 200px 10px;
+    /* height: 100vh; */
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: rgb(240, 240, 174);
+    display: flex;
+}
+
+.tabContainer{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    padding: 7px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    gap: 5px;
+}
+.AddTab{
+    display: flex;
+    gap: 5px;
+}
+.dummyTab{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 3px;
+    display: flex;
+    justify-content: space-between;
+    min-width: 100px;
+    width: 150px;
+    max-width: 300px;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+.searchResult{
+    border: 1px solid black;
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    flex: 2;
+}
+.features{
+    flex: 1;
+    margin-right: 10px;
+    margin-left: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.history{
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 0px 5px 10px;
+    flex: 2;
+}
+.history h3{
+    text-align: center;
+}
+.shortcutDiv{
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px 5px 0px;
+    flex: 1;
+}
+
+.list-closedTab{
+    display: flex;
+    flex-direction: column;
+}
+.closedTab{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.list-KeyboardShortcut{
+    display: flex;
+    flex-direction: column;
+}
+.shortcut{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
