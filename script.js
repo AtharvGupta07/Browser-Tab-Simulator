@@ -2,6 +2,8 @@ const addBtn = document.querySelector(".Add-Btn");
 const content = document.querySelector(".searchResult");
 const tabContainer = document.querySelector(".AddTab");
 const main = document.querySelector(".main");
+const listClosedTab =  document.querySelector(".list-closedTab");
+const memory = [];
 
 const websiteDatabase = [
     {
@@ -214,7 +216,9 @@ function defaultNature(){
 }
 defaultNature();
 
-addBtn.addEventListener("click",()=>{
+addBtn.addEventListener("click", addBtnFunc);
+
+function addBtnFunc(){
     for(let i = 0; i < tabList.length; i++){
         tabList[i].active = false;
     }
@@ -230,7 +234,7 @@ addBtn.addEventListener("click",()=>{
     count++;
 
     renderTab();
-});
+}
 
 function renderTab(){
     tabContainer.innerHTML = "";
@@ -267,7 +271,6 @@ function closeTab(id){
                 }else if(i + 1 < tabList.length-1){
                     tabList[i+1].active = true;
                 }else{
-
                     if(document.querySelector(".noTab")){
                         return;
                     }
@@ -294,8 +297,12 @@ function closeTab(id){
                         clearTimeout(timer);
                         defaultNature();
                     });
+                    return;
                 }
+                
             }
+            memory.unshift(tabList[i]);
+            renderRecentlyClosed();
             tabList.splice(i,1);
             renderTab();
             break;
@@ -324,7 +331,7 @@ function renderContent(index){
                 let found = false;
                 for(let i = 0; i < websiteDatabase.length; i++){
                     if(tabList[index].content === websiteDatabase[i].keyword){
-                        renderDatabse(i);
+                        renderDatabse(index, i);
                         found = true;
                         console.log(found);
                         
@@ -366,18 +373,19 @@ function chngContent(str, index){
             preventErr.remove();
             clearTimeout(timer);
         });
+    }else{
+            str = str.trim().toLowerCase();
+        tabList[index].content = str;
+        str = str[0].toUpperCase() + str.slice(1);
+        tabList[index].name = str;
+        console.log(tabList[index].name);
+        
+        renderTab();
     }
-    console.log("btn clicked");
-    str = str.trim().toLowerCase();
-    tabList[index].content = str;
-    str = str[0].toUpperCase() + str.slice(1);
-    tabList[index].name = str;
-    console.log(tabList[index].name);
-    
-    renderTab();
 }
 
-function renderDatabse(i){
+//j -> tabList, i-> database
+function renderDatabse(j, i){
     let finalResult = document.createElement("div");
     finalResult.classList.add("finalResult");
 
@@ -424,3 +432,47 @@ function renderDatabse(i){
     content.appendChild(finalResult);
     finalResult.style.backgroundColor = websiteDatabase[i].theme;
 }
+
+function renderRecentlyClosed(){
+    console.log("rendering");
+    
+    listClosedTab.innerHTML = "";
+    for(let i = 0; i < memory.length; i++){
+        let closedTab = document.createElement("div");
+        closedTab.classList.add("closedTab");
+
+        let nameClosedTab = document.createElement("span");
+        nameClosedTab.textContent = memory[i].name;
+
+        let undoBtn = document.createElement("button");
+        undoBtn.textContent = "undo";
+
+        closedTab.appendChild(nameClosedTab);
+        closedTab.appendChild(undoBtn);
+        listClosedTab.appendChild(closedTab);
+
+        undoBtn.addEventListener("click", ()=>{addBack(i)});
+    }
+}
+
+function addBack(index){
+    tabList.push(memory[index]);
+    chngActive(memory[index].id);
+    memory.splice(index,1);
+    renderRecentlyClosed();
+    renderTab();
+}
+
+document.addEventListener("keydown", (event) => {
+    if(event.ctrlKey && event.key === "q"){
+        addBtnFunc();
+    }
+    else if(event.ctrlKey && event.key === "i"){
+        for(let i = 0; i < tabList.length; i++){
+            if(tabList[i].active){
+                closeTab(tabList[i].id);
+                break;
+            }
+        }
+    }
+});

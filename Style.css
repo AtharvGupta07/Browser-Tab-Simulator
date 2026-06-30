@@ -10,12 +10,12 @@
 }
 
 main{
-    margin: 10px 200px 10px;
-    /* height: 100vh; */
+    margin: 10px 150px;
     border: 1px solid black;
     border-radius: 15px;
     background-color: rgb(240, 240, 174);
     display: flex;
+    min-height: calc(100vh - 100px);
 }
 
 .tabContainer{
@@ -24,35 +24,44 @@ main{
     margin-right: 5px;
     margin-bottom: 10px;
     padding: 7px;
-    /* border: 1px solid black; */
     border-radius: 5px;
     display: flex;
     gap: 5px;
-    /* background-color: rgba(240, 240, 174, 0.384); */
-    /* background-color: rgba(243, 243, 196, 0.979); */
+    width: 800px;
 }
+
 .AddTab{
     display: flex;
     gap: 5px;
+    min-width: 10px;
 }
+
 .dummyTab{
     border: 1px solid black;
     border-radius: 5px;
     padding: 3px;
     display: flex;
     justify-content: space-between;
-    min-width: 100px;
+    min-width: 10px;
     width: 150px;
     max-width: 300px;
     background-color:rgba(243, 243, 196, 0.979);
     cursor: pointer;
+    flex-wrap: nowrap;
+    flex: 1;
 }
 
 .dummyTab:hover{
-    background-color: rgb(31, 41, 55);
-    color: white;
+    background-color:  #cccc9f;
+    color: black;
 }
-/* Only the tab name changes, entire background doesn't chng */
+
+.dummyTab span{
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 .dummyTab button{
     background: transparent;
@@ -64,7 +73,7 @@ main{
 
 .dummyTab button:hover{
     background-color: rgb(58, 77, 104);
-    color: white;
+    color: black;
 }
 
 .Add-Btn{
@@ -78,8 +87,8 @@ main{
 }
 
 .Add-Btn:hover{
-    background-color: rgb(31, 41, 55);
-    color: white;
+    background-color:  #CACA7E;
+    color: black;
 }
 
 .content{
@@ -113,8 +122,11 @@ main{
     border-radius: 5px;
     margin: 0px 5px 10px;
     flex: 2;
+    background-color: rgb(202, 202, 126);
+    font-size: small;
 }
 .history h3{
+    font-size: medium;
     text-align: center;
 }
 .shortcutDiv{
@@ -122,30 +134,45 @@ main{
     border-radius: 5px;
     margin: 5px 5px 0px;
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .list-closedTab{
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    max-height: 250px;
 }
 .closedTab{
     border: 1px solid black;
     border-radius: 5px;
     padding: 5px;
-    margin: 5px;
+    margin: 2px 10px;
     padding-right: 10px;
     display: flex;
     justify-content: space-between;
+    background-color:  rgb(240, 240, 174);
+    color: black;
 }
 .list-KeyboardShortcut{
     display: flex;
     flex-direction: column;
+    background-color: #CACA7E;
+    flex: 1;
 }
 .shortcut{
-    border: 1px solid black;
+    background-color:  rgb(240, 240, 174);
     border-radius: 5px;
+    font-size: small;
     padding: 5px;
-    margin: 5px;
+    margin: 2px 5px;
+}
+.shortcutDiv h4{
+    text-align: center;
+    font-size: medium;
+    padding: 1px;
+    background-color: #CACA7E;
 }
 
 .genricResult{
@@ -167,8 +194,8 @@ main{
 }
 .genricResult-btn:hover{
     /* background-color: #236AF2; */
-    background-color: rgb(31, 41, 55);
-    color: white;
+    background-color:  #CACA7E;
+    color: black;
 }
 .noTab{
     position: fixed;
@@ -203,24 +230,24 @@ main{
 }
 
 .activeTab{
-    background-color: rgb(31, 41, 55);
-    color: white;
+    background-color:  #CACA7E;
+    color: black;
 }
 .activeTab button{
-    color: white;
+    color: black;
 }
 .finalResult{
     display: flex;
     flex-direction: column;
     padding: 50px 110px;
-    margin-top: 100px;
+    margin: 50px 70px;
     border-radius: 20px;
     background-color: #FFA116;
     gap: 20px;
-    color: white;
+    color: black;
 }
 .resultHead{
-    color: white;
+    color: black;
     flex: 1;
     display: flex;
     gap: 5px;
@@ -228,28 +255,28 @@ main{
     align-items: center;
 }
 .resultHead a{
-    color: white;
+    color: black;
     text-decoration: none;
     font-size: x-large;
     font-weight: bold;
 }
 .result-description{
-    color: white;
+    color: black;
     flex: 1;
     font-size: large;
 }
 .result-features{
-    color: white;
+    color: black;
     flex: 2;
     display: flex;
     gap: 10px;
 }
 .result-features h4{
-    color: white;
+    color: black;
     font-size: larger;
 }
 .result-features ul{
-    color: white;
+    color: black;
     list-style: none;
     font-size: large;
     display: flex;
