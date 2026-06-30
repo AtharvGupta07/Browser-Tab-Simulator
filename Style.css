@@ -42,6 +42,18 @@ main{
     min-width: 100px;
     width: 150px;
     max-width: 300px;
+    background-color:rgb(240, 240, 174) ;
+}
+.dummyTab button{
+    background: transparent;
+    font-weight: bold;
+    border: none;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+.dummyTab button:hover{
+    background-color:rgba(99, 99, 46, 0.226);
 }
 .content{
     display: flex;
@@ -55,6 +67,9 @@ main{
     margin-bottom: 10px;
     border-radius: 5px;
     flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 .features{
     flex: 1;
@@ -104,4 +119,57 @@ main{
     border-radius: 5px;
     padding: 5px;
     margin: 5px;
+}
+
+.genricResult{
+    margin-top: 100px;
+}
+.genricResult_input{
+    width: 300px;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+.genricResult-btn{
+    width: 100px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 255, 0.829);
+    font-weight: bold;
+    font-size: 13px;
+}
+.noTab{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1000;
+
+    width: 450px;
+    padding: 20px;
+
+    background: white;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.noTab button{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 50%;
+}
+.noTab button:hover{
+    background-color: rgba(0,0,0,0.15);
+}
+
+.activeTab{
+    background-color: rgb(241,241,109);
 }
