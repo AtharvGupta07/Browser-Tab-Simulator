@@ -24,10 +24,12 @@ main{
     margin-right: 5px;
     margin-bottom: 10px;
     padding: 7px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 5px;
     display: flex;
     gap: 5px;
+    /* background-color: rgba(240, 240, 174, 0.384); */
+    /* background-color: rgba(243, 243, 196, 0.979); */
 }
 .AddTab{
     display: flex;
@@ -42,8 +44,16 @@ main{
     min-width: 100px;
     width: 150px;
     max-width: 300px;
-    background-color:rgb(240, 240, 174) ;
+    background-color:rgba(243, 243, 196, 0.979);
+    cursor: pointer;
 }
+
+.dummyTab:hover{
+    background-color: rgb(31, 41, 55);
+    color: white;
+}
+/* Only the tab name changes, entire background doesn't chng */
+
 .dummyTab button{
     background: transparent;
     font-weight: bold;
@@ -53,8 +63,25 @@ main{
 }
 
 .dummyTab button:hover{
-    background-color:rgba(99, 99, 46, 0.226);
+    background-color: rgb(58, 77, 104);
+    color: white;
 }
+
+.Add-Btn{
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: large;
+    padding: 1px 8px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.Add-Btn:hover{
+    background-color: rgb(31, 41, 55);
+    color: white;
+}
+
 .content{
     display: flex;
     flex-direction: column;
@@ -134,9 +161,14 @@ main{
     width: 100px;
     padding: 10px;
     border-radius: 20px;
-    background-color: rgba(0, 0, 255, 0.829);
+    background: transparent;
     font-weight: bold;
     font-size: 13px;
+}
+.genricResult-btn:hover{
+    /* background-color: #236AF2; */
+    background-color: rgb(31, 41, 55);
+    color: white;
 }
 .noTab{
     position: fixed;
@@ -171,5 +203,56 @@ main{
 }
 
 .activeTab{
-    background-color: rgb(241,241,109);
+    background-color: rgb(31, 41, 55);
+    color: white;
+}
+.activeTab button{
+    color: white;
+}
+.finalResult{
+    display: flex;
+    flex-direction: column;
+    padding: 50px 110px;
+    margin-top: 100px;
+    border-radius: 20px;
+    background-color: #FFA116;
+    gap: 20px;
+    color: white;
+}
+.resultHead{
+    color: white;
+    flex: 1;
+    display: flex;
+    gap: 5px;
+    justify-content: flex-start;
+    align-items: center;
+}
+.resultHead a{
+    color: white;
+    text-decoration: none;
+    font-size: x-large;
+    font-weight: bold;
+}
+.result-description{
+    color: white;
+    flex: 1;
+    font-size: large;
+}
+.result-features{
+    color: white;
+    flex: 2;
+    display: flex;
+    gap: 10px;
+}
+.result-features h4{
+    color: white;
+    font-size: larger;
+}
+.result-features ul{
+    color: white;
+    list-style: none;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
